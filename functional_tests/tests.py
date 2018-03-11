@@ -1,4 +1,4 @@
-from django.test import LiveServerTestCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import WebDriverException
@@ -7,7 +7,7 @@ import unittest
 
 MAX_WAIT = 10
 
-class NewVisitorTest(LiveServerTestCase):
+class NewVisitorTest(StaticLiveServerTestCase):
 
     def setUp(self):
         self.browser = webdriver.Firefox()
@@ -61,7 +61,6 @@ class NewVisitorTest(LiveServerTestCase):
         # There is still a text box inviting here do add another item. She
         # enters "Use peacock feathers to make a fly" (Edith is very
         # methodical
-        self.fail('Finish the test!')
 
         # The page updates again, and now shows both items on her list.
 
