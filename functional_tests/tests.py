@@ -25,7 +25,7 @@ class NewVisitorTest(LiveServerTestCase):
                 return
             except:
                 if time.time() - start_time > MAX_WAIT:
-                    raise e
+                    raise Exception
                 time.sleep(0.5)
 
     def test_can_start_a_list_and_retrieve_it_later(self):
