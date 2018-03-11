@@ -1,0 +1,14 @@
+[Unit]
+Description=Gunicorn server for staging
+
+[Service]
+Restart=on-failure
+User=ubuntu
+WorkingDirectory=/home/ubuntu/sites/staging
+EnvironmentFile=/home/ubuntu/sites/staging/.env
+
+ExecStart=/home/ubuntu/sites/staging/virtualvenv/bin/gunicorn --bind unix:/tmp/staging.socket superlists.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+
