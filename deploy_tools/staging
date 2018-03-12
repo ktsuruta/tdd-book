@@ -1,0 +1,12 @@
+server {
+    listen 80;
+    server_name _;
+
+    location /static{
+        alias /home/ubuntu/sites/staging/static;
+    }
+    location / {
+        proxy_pass http://unix:/tmp/staging.socket;
+        proxy_set_header Host $host;
+    }
+}
